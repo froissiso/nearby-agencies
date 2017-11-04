@@ -1,6 +1,5 @@
 import React from 'react';
 import AgencyResultRow2 from './AgencyResultRow2';
-import './css/AgencyResults.css';
 
 class AgencyResults2 extends React.Component {
   render() {

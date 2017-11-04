@@ -7,6 +7,7 @@ import filterAgency from './filterAgency';
 import getAgenciesFromGooglePlaces from './getAgenciesFromGooglePlaces';
 import getLocationCoordinates from './getLocationCoordinates';
 import NameForm from './NameForm';
+import getAddressSuggestions from './getAddressSuggestions';
 
 class App extends React.Component {
   constructor(props) {
@@ -92,7 +93,7 @@ class App extends React.Component {
       //console.log("XIII: ",coord[0].geometry.location);
       console.log("COORD: "+coord);
       console.log(coord==="request failure");
-      if(coord!=="request failure"){
+      if(coord!=="request failure" && coord.length > 0){
         this.setState({location1:coord[0].geometry.location});
       }
       else{
@@ -103,7 +104,7 @@ class App extends React.Component {
       //console.log(this);
 
       getLocationCoordinates(this.state.address2).then((coord2) => {
-        if(coord2!=="request failure"){
+        if(coord2!=="request failure" && coord2.length > 0){
           this.setState({location2:coord2[0].geometry.location});
         }
         else{
@@ -413,11 +414,45 @@ class App extends React.Component {
     this.handleSubmit2("","");
   }
 
+  generateSuggestions = (datalistID,partial_address) => {
+    console.log("HHH: "+ datalistID);
+    console.log("PARTIAL: "+partial_address);
+    const list = document.getElementById(datalistID);
+
+    if(partial_address !== ""){
+      // First remove all previous suggestions
+      while (list.firstChild) {
+        list.removeChild(list.firstChild);
+      }
+
+
+      getAddressSuggestions(partial_address).then((suggs) => {
+        console.log("SUGGS: ");
+        //console.log(suggs[0].description);
+        suggs.forEach(item => {
+          console.log("Sug: "+item.description);
+          let option = document.createElement('option');
+          option.value = item.description;   
+          list.appendChild(option);
+        });
+      });
+    }
+    
+
+
+    // ['Herr','Frau'].forEach(item => {
+    //   let option = document.createElement('option');
+    //   option.value = item;   
+    //   list.appendChild(option);
+    // });
+  }
+
   render() {
     return (
       <div>
         <Header/>
-        <NameForm handleSubmit2={this.handleSubmit2} add1={this.state.address1} add2={this.state.address2} clearList={this.clearList}/>
+        <NameForm handleSubmit2={this.handleSubmit2} add1={this.state.address1} add2={this.state.address2} 
+        clearList={this.clearList} generateSuggestions={this.generateSuggestions}/>
         
 
         <AgencyResults

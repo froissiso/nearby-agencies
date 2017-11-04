@@ -3,7 +3,9 @@ import axios from 'axios';
 export default function getLocationCoordinates(address) {
 	// APROX, pendiendte exactitud en AUSTIN,TX
 	//https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDeF5VsxeTsdAaoEpX7mzoTRt7Zxq5WP6M
-	
+	// if(address === ""){
+ //    return "request failure";
+ //  }
   //console.log("ADDRESS 1: ",address1);
 	var key = 'AIzaSyDeF5VsxeTsdAaoEpX7mzoTRt7Zxq5WP6M';
 

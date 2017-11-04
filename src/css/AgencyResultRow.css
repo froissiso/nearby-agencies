@@ -1,6 +1,9 @@
 .component-agency-result-row {
   border-bottom: 1px solid #ccc;
-  padding: 10px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
   height: 32px;
   position: relative;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -15,6 +18,11 @@
   width: 32px;
   height: 32px;
   padding-right: 10px;
+}
+.component-agency-result-row div {
+  width: 32px;
+  height: 32px;
+  padding-bottom: 10px;
 }
 
 .component-agency-result-row .title {

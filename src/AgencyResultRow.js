@@ -8,16 +8,17 @@ class AgencyResultRow extends React.Component {
     // const src = `//cdn.jsdelivr.net/emojione/assets/png/${codePointHex}.png`;
     return (
       <div className="component-agency-result-row">
-        <img
-          //alt={this.props.name}
-          src={this.props.icon}
-        />
-        <span
-          className="name"
-        >
-          {this.props.name} | Distances Sum (rounded after sorting): {this.calculateDistancesSum(this.props.distance1,this.props.distance2)}
+          <img
+            //alt={this.props.name}
+            src={this.props.icon}
+          />
+          <span
+            className="span1"
+          >
 
-        </span>
+            <b>{this.props.name}</b> | Distance index: {this.calculateDistancesSum(this.props.distance1,this.props.distance2)}
+          
+          </span>
       </div>
     );
   }
