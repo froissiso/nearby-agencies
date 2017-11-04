@@ -8,7 +8,7 @@ export default function getLocationCoordinates(address) {
 	var key = 'AIzaSyDeF5VsxeTsdAaoEpX7mzoTRt7Zxq5WP6M';
 
 	var parameters = `address=`+address+`&key=`+key;
-	var url = 'http://anyorigin.com/go?url=https://maps.googleapis.com/maps/api/geocode/json?'+parameters;
+	var url = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/geocode/json?'+parameters;
 
 	console.log("URL2: "+url);
 	return axios.get(url)
@@ -21,11 +21,12 @@ export default function getLocationCoordinates(address) {
         console.log(res);
         //console.log(JSON.parse(res.data.contents));
         console.log("RES: ");
-        console.log(res.data.contents.results[0]);
+        //console.log(res.data.contents.results[0]);
+
         //console.log(JSON.parse(res.data.contents));
         //console.log("ESTO ES : ",res.data.contents.results);
-        var resultsList = res.data.contents.results;
-        //var resultsList = res.data.results;
+        //var resultsList = res.data.contents.results;
+        var resultsList = res.data.results;
         console.log("RESULT: "+resultsList);
         return resultsList;
         //resolve(resultsList);
