@@ -13,17 +13,8 @@ export default function getAddressSuggestions(partial_address) {
 	console.log("URL3: "+url);
 	return axios.get(url)
       .then(res => {
-        //const posts = res.data.data.children.map(obj => obj.data);
-        //this.setState({ posts });
-        //const resultsList = res.children.map(obj => obj.data);
-        //console.log(resultsList);
         var resultsList = res.data.predictions;
         console.log("RES3:"+resultsList);
         return resultsList;
-        //resolve(resultsList);
-        //updateList(resultsList);
       });
-      //console.log("AQUI ",resultsList);
-      //return resultsList;
-
 }

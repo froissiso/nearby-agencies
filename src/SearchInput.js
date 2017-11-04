@@ -18,7 +18,4 @@ class SearchInput extends React.Component {
     );
   }
 }
-// SearchInput.propTypes = {
-//   textChange: React.PropTypes.func,
-// };
 export default SearchInput;

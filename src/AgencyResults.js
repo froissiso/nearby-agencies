@@ -10,14 +10,9 @@ class AgencyResults extends React.Component {
             return (
 
               <AgencyResultRow
-                // key={agencyData.symbol}
-                // symbol={agencyData.symbol}
-                // title={agencyData.title}
-                
                 key={agencyData.name + agencyData.distance1}
                 name={agencyData.name}
-                //description={agencyData.description}
-                //coordinates={agencyData.geometry.location}
+
                 distance1={agencyData.distance1}
                 distance2={agencyData.distance2}
                 icon={agencyData.icon}
@@ -31,7 +26,4 @@ class AgencyResults extends React.Component {
     );
   }
 }
-// AgencyResults.propTypes = {
-//   agencyData: React.PropTypes.array,
-// };
 export default AgencyResults;
