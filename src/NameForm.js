@@ -36,13 +36,13 @@ class NameForm extends React.Component {
       
       <form onSubmit={this.handleSubmit}>
         <div className="component-search-input">
-          <label>
+         
             Address 1:
             <input type="text" value={this.state.value1} onChange={this.handleChange} />
             
             Address 2:
             <input type="text" value={this.state.value2} onChange={this.handleChange2} />
-          </label>
+          
         </div>
         <div className="buttons-div">
           <button className="button button1" type="reset" onClick={this.clearList}>Clear</button>
