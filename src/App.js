@@ -5,7 +5,6 @@ import getLocationCoordinates from './getLocationCoordinates';
 import Header from './Header';
 import NameForm from './NameForm';
 import React from 'react';
-import SearchInput from './SearchInput';
 
 class App extends React.Component {
   constructor(props) {
@@ -140,7 +139,6 @@ class App extends React.Component {
       var latsDif = l2.lat - l1.lat;
       var lngsDif = l2.lng - l2.lng;
 
-      var x = Math.sqrt(Math.pow(9,2));
       var result = Math.sqrt(Math.pow(latsDif,2) + Math.pow(lngsDif,2));
       return result;
     }
