@@ -1,6 +1,4 @@
-import axios from 'axios';
-
-export default function getLocationCoordinates(address) {
+export default function getLocationCoordinates2(address) {
 	// APROX, pendiendte exactitud en AUSTIN,TX
 	//https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDeF5VsxeTsdAaoEpX7mzoTRt7Zxq5WP6M
 	
@@ -9,6 +7,11 @@ export default function getLocationCoordinates(address) {
 
 	var parameters = `address=`+address+`&key=`+key;
 	var url = 'http://anyorigin.com/go?url=https://maps.googleapis.com/maps/api/geocode/json?'+parameters;
+
+
+  $.getJSON('http://anyorigin.com/go?url=https%3A//maps.googleapis.com/maps/api/geocode/json%3Faddress%3D1600+Amphitheatre+Parkway%2C+Mountain+View%2C+CA%26key%3DAIzaSyDeF5VsxeTsdAaoEpX7mzoTRt7Zxq5WP6M&callback=?', function(data){
+    $('#output').html(data.contents);
+  });
 
 	console.log("URL2: "+url);
 	return axios.get(url)
