@@ -21,6 +21,8 @@ class AgencyResults extends React.Component {
                 distance1={agencyData.distance1}
                 distance2={agencyData.distance2}
                 icon={agencyData.icon}
+                vicinity={agencyData.vicinity}
+                types={agencyData.types}
               />
             );
           })

@@ -164,11 +164,19 @@ class App extends React.Component {
               dist.forEach(function(entry){
                 var name = entry[0].name;
                 var icon = entry[0].icon;
+                var vicinity = entry[0].vicinity;
+                var types = "(";
+                console.log(entry[0].types);
+                for(var i = 0 ; i<(entry[0].types.length)-1 ; i++){
+                  types += entry[0].types[i] + ", ";
+                }
+                types += entry[0].types[entry[0].types.length-1]+")";
+        
                 var distance1 = entry[1];
                 var distance2 = entry[2];
                 console.log("entry: distance1 ",distance1+" | distance2 "+ distance2);
                 console.log("icon: "+icon);
-                var newEntry = {name:name,distance1:distance1,distance2:distance2,icon:icon};
+                var newEntry = {name:name,distance1:distance1,distance2:distance2,icon:icon,vicinity:vicinity,types:types};
                 var key = newEntry.name + newEntry.distance1;
 
                 if(visitedKeys.indexOf(key) === -1){

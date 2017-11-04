@@ -16,8 +16,7 @@ class AgencyResultRow extends React.Component {
             className="span1"
           >
 
-            <b>{this.props.name}</b> | Distance index: {this.calculateDistancesSum(this.props.distance1,this.props.distance2)}
-          
+            <b>{this.props.name}</b> | {this.props.vicinity}  <font color = "darkgray"><small> <sup>Distance index: {this.calculateDistancesSum(this.props.distance1,this.props.distance2)}</sup></small></font>
           </span>
       </div>
     );
