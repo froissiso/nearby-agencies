@@ -7,7 +7,8 @@ export default function getAddressSuggestions(partial_address) {
 	var types = 'geocode';
 
 	var parameters = `input=`+input+`&types=`+types+`&key=`+key;
-	var url = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?'+parameters;
+	//var url = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?'+parameters;
+	var url = 'https://cors-anywhere-own.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json?'+parameters;
 
 	console.log("URL3: "+url);
 	return axios.get(url)

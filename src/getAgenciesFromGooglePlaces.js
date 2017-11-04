@@ -17,7 +17,8 @@ export default function getAgenciesFromGooglePlaces(location1) {
 	var key = 'AIzaSyDeF5VsxeTsdAaoEpX7mzoTRt7Zxq5WP6M';
 
 	var parameters = `location=`+location+`&radius=`+radius+`&types=`+types+`&key=`+key;//+`&name=`+name;
-	var url = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?'+parameters;
+	//var url = 'https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?'+parameters;
+	var url = 'https://cors-anywhere-own.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?'+parameters;
 
 	console.log("URL1: "+url);
 	return axios.get(url)
