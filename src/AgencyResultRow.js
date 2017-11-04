@@ -10,7 +10,7 @@ class AgencyResultRow extends React.Component {
       <div className="component-agency-result-row">
         <img
           //alt={this.props.name}
-          //src={src}
+          src={this.props.icon}
         />
         <span
           className="name"

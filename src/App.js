@@ -162,10 +162,12 @@ class App extends React.Component {
               //let p = this.state.agency_distance_array2.slice();
               dist.forEach(function(entry){
                 var name = entry[0].name;
+                var icon = entry[0].icon;
                 var distance1 = entry[1];
                 var distance2 = entry[2];
                 console.log("entry: distance1 ",distance1+" | distance2 "+ distance2);
-                var newEntry = {name:name,distance1:distance1,distance2:distance2};
+                console.log("icon: "+icon);
+                var newEntry = {name:name,distance1:distance1,distance2:distance2,icon:icon};
                 var key = newEntry.name + newEntry.distance1;
 
                 if(visitedKeys.indexOf(key) === -1){
@@ -256,12 +258,7 @@ class App extends React.Component {
             // console.log("POINTS: ",points);
 
           });
-
-          
         });
-
-      
-
       })
 
       
@@ -410,17 +407,18 @@ class App extends React.Component {
     );
   }
 
+  clearList = () => {
+    console.log("CLEAR2");
+    this.setState({agency_distance_array:[]});
+    this.handleSubmit2("","");
+  }
+
   render() {
     return (
       <div>
         <Header/>
-
-        Address 1: {this.state.address1}  ||  Address 2: {this.state.address2}
-
-        <NameForm handleSubmit2={this.handleSubmit2}/>
-        <SearchInput
-        	textChange={this.handleSearchChange}
-        />
+        <NameForm handleSubmit2={this.handleSubmit2} add1={this.state.address1} add2={this.state.address2} clearList={this.clearList}/>
+        
 
         <AgencyResults
           agencyData={this.state.agency_distance_array2}
@@ -438,11 +436,13 @@ class App extends React.Component {
   }
 }
 export default App;
-        
+        //<SearchInput
+          //textChange={this.handleSearchChange}
+        ///>
+
         //<AgencyResults
           //agencyData={this.state.mapAgencies}
         ///>
-
 
 
         // <AgencyResults

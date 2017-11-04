@@ -21,6 +21,7 @@ class AgencyResults extends React.Component {
                 //coordinates={agencyData.geometry.location}
                 distance1={agencyData.distance1}
                 distance2={agencyData.distance2}
+                icon={agencyData.icon}
               />
             );
           })

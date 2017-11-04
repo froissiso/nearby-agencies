@@ -1,13 +1,15 @@
 import React from 'react';
+import './css/NameForm.css';
 
 class NameForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value1: '',value2: ''};
+    this.state = {value1: this.props.add1,value2: this.props.add2};
 
     this.handleChange = this.handleChange.bind(this);
     this.handleChange2 = this.handleChange2.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.clearList = this.clearList.bind(this);
   }
 
   handleChange(event) {
@@ -23,19 +25,31 @@ class NameForm extends React.Component {
     event.preventDefault();
   }
 
+  clearList(){
+    this.setState({value1:'',value2:''});
+    this.props.clearList();
+    console.log("CLEAR");
+  }
+
   render() {
     return (
+      
       <form onSubmit={this.handleSubmit}>
-        <label>
-          New address 1:
-          <input type="text" value={this.state.value1} onChange={this.handleChange} />
-          New address 2:
-          <input type="text" value={this.state.value2} onChange={this.handleChange2} />
-        </label>
-        <input type="submit" value="Submit" />
-        {this.state.value1}
-        {this.state.value2}
+        <div className="component-search-input">
+          <label>
+            Address 1:
+            <input type="text" value={this.state.value1} onChange={this.handleChange} />
+            
+            Address 2:
+            <input type="text" value={this.state.value2} onChange={this.handleChange2} />
+          </label>
+        </div>
+        <div className="buttons-div">
+          <button className="button button1" type="reset" onClick={this.clearList}>Clear</button>
+          <button className="button button2" type="submit" ><span>Update Results </span></button>
+        </div>
       </form>
+
     );
   }
 }
