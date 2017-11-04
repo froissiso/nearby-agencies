@@ -15,7 +15,7 @@ class App extends React.Component {
       location1: {},
       location2: {},
       address1: 'Austin,Texas',
-      address2: 'Madrid',
+      address2: 'Redwood City,California',
       agency_distance_array: [],
       agency_distance_array2: []
     };
